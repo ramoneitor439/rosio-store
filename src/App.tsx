@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     getAllProducts()
-  }, [products])
+  }, [])
 
   return (
     <div className="app">
