@@ -37,7 +37,7 @@ function App() {
       {/* Header */}
       <header className="header">
         <nav className="navbar">
-          <div className="logo">TechStore</div>
+          <div className="logo">Rose and Patry shop</div>
           <ul className="nav-links">
             <li><a href="#home">Inicio</a></li>
             <li><a href="#products">Productos</a></li>
@@ -50,9 +50,9 @@ function App() {
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-content">
-          <h1>Bienvenido a TechStore</h1>
-          <p>Los mejores productos tecnológicos al mejor precio</p>
-          <button className="cta-button">Ver Catálogo</button>
+          <h1>Bienvenido a 'Rose and Patry shop'</h1>
+          <p>Los mejores productos al mejor precio</p>
+          <a href="#products"><button className="cta-button">Ver Catálogo</button></a>
         </div>
       </section>
 
@@ -79,14 +79,13 @@ function App() {
         <div className="about-content">
           <div className="about-text">
             <h2>Sobre Nosotros</h2>
-            <p>Somos una empresa líder en tecnología con más de 10 años de experiencia en el mercado. Nuestro compromiso es ofrecer productos de la más alta calidad con el mejor servicio al cliente.</p>
+            <p>Somos Rosio y Patricia</p>
             <ul className="about-features">
               <li>✅ Garantía de 2 años</li>
               <li>✅ Envíos a todo el país</li>
               <li>✅ Soporte técnico 24/7</li>
             </ul>
           </div>
-          <img src="https://via.placeholder.com/500x400" alt="Nuestra empresa" className="about-image" />
         </div>
       </section>
 
@@ -95,7 +94,12 @@ function App() {
         <div className="contact-container">
           <div className="contact-info">
             <h2>Contacto</h2>
-            <p>📞 +1 234 567 890</p>
+            <div>
+            <a href='https://wa.me/5358259480?text=Hola,%20quiero%20contactarte%20por...'>Rosio</a>
+            </div>
+            <div>
+              <a href='https://wa.me/5355726923?text=Hola,%20quiero%20contactarte%20por...'>Patricia</a>
+            </div>
             <p>📧 info@techstore.com</p>
             <p>📍 Av. Tecnológica 1234, Ciudad Digital</p>
             <div className="social-links">
