@@ -1,4 +1,5 @@
 import './App.css';
+import WhatsappIcon from './components/WhatsappIcon';
 import supabase from "./utils/supabase"
 import { useEffect, useState } from 'react';
 
@@ -12,7 +13,16 @@ type Product = {
 
 function App() {
 
-  const [products, setProducts] = useState<Product[]>([] )
+  const [products, setProducts] = useState<Product[]>([])
+  const rosioWhatsappMsg = "https://wa.me/5358259480?text="
+  const patriciaWhatsappMsg = "https://wa.me/5358259480?text="
+
+  const buildProductMsg = (url: string, product: string) => {
+    const codedMsg = encodeURIComponent(
+      `Hola, le escribo para preguntar por el producto ${product} que vi en su tienda.`
+    );
+    return url + codedMsg
+  }
 
   const getAllProducts = async () => {
     const { data, status, error } = await supabase.from("product").select()
@@ -50,9 +60,7 @@ function App() {
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-content">
-          <h1>Bienvenido a 'Rose and Patry shop'</h1>
-          <p>Los mejores productos al mejor precio</p>
-          <a href="#products"><button className="cta-button">Ver Catálogo</button></a>
+        <a href="#products"><button className="cta-button">Ver Catálogo</button></a>
         </div>
       </section>
 
@@ -67,25 +75,13 @@ function App() {
                 <h3>{product.name}</h3>
                 <p className="description">{product.description}</p>
                 <div className="price">${product.price.toLocaleString()}</div>
-                <button className="buy-button">Ver Detalles</button>
+                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <a href={buildProductMsg(rosioWhatsappMsg, product.name)}><button className="buy-button">Hacer pedido (Rosío)</button></a>
+                  <a href={buildProductMsg(patriciaWhatsappMsg, product.name)}><button className="buy-button">Hacer pedido (Patricia)</button></a>
+                </div>
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="about-section">
-        <div className="about-content">
-          <div className="about-text">
-            <h2>Sobre Nosotros</h2>
-            <p>Somos Rosio y Patricia</p>
-            <ul className="about-features">
-              <li>✅ Garantía de 2 años</li>
-              <li>✅ Envíos a todo el país</li>
-              <li>✅ Soporte técnico 24/7</li>
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -94,36 +90,34 @@ function App() {
         <div className="contact-container">
           <div className="contact-info">
             <h2>Contacto</h2>
-            <div>
-            <a href='https://wa.me/5358259480?text=Hola,%20quiero%20contactarte%20por...'>Rosio</a>
+            <div style={{ display: "flex", gap: "10px", padding: "10px" }}>
+              <a href="Hola,%20quiero%20contactarte%20por...'" className="whatsapp-btn" target="_blank">
+                <span className="whatsapp-icon">
+                  <WhatsappIcon width='20px' height='20px' />
+                </span>
+                <div className="contact-info">
+                    <span className="contact-name">Rosío</span>
+                    <span className="contact-number">+53 58259480</span>
+                </div>
+              </a>
+              <a href="https://wa.me/5351539789?text=Hola,%20quiero%20contactarte%20por...'" className="whatsapp-btn" target="_blank">
+                <span className="whatsapp-icon">
+                  <WhatsappIcon width='20px' height='20px' />
+                </span>
+                <div className="contact-info">
+                    <span className="contact-name">Patricia</span>
+                    <span className="contact-number">+53 51539789</span>
+                </div>
+              </a>
             </div>
-            <div>
-              <a href='https://wa.me/5355726923?text=Hola,%20quiero%20contactarte%20por...'>Patricia</a>
-            </div>
-            <p>📧 info@techstore.com</p>
-            <p>📍 Av. Tecnológica 1234, Ciudad Digital</p>
-            <div className="social-links">
-              <a href="#fb">Facebook</a>
-              <a href="#tw">Twitter</a>
-              <a href="#ig">Instagram</a>
-            </div>
+            <p>📍 Granma, Yara. Mateo Romás calle C #195</p>
           </div>
-          <form className="contact-form">
-            <input type="text" placeholder="Nombre" required />
-            <input type="email" placeholder="Email" required />
-            <textarea placeholder="Mensaje" rows={5} required></textarea>
-            <button type="submit">Enviar Mensaje</button>
-          </form>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
-        <p>© 2023 TechStore. Todos los derechos reservados.</p>
-        <div className="footer-links">
-          <a href="#terms">Términos de servicio</a>
-          <a href="#privacy">Política de privacidad</a>
-        </div>
+        <p>© 2023 Rose and Patry shop. Todos los derechos reservados.</p>
       </footer>
     </div>
   );

@@ -64,11 +64,12 @@
   /* Hero Section */
   .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080');
-    background-size: cover;
+    background: url('../public/background.jpeg');
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
     color: white;
@@ -183,7 +184,7 @@
   
   /* About Section */
   .about-section {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
   }
   
   .about-content {
@@ -223,6 +224,7 @@
   .contact-section {
     padding: 5rem 2rem;
     background: var(--light-bg);
+    padding: 10px;
   }
   
   .contact-container {
@@ -303,6 +305,53 @@
     color: white;
     text-decoration: none;
   }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px; /* Reducción drástica del border-radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-icon {
+    font-size: 22px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.contact-name {
+    font-size: 15px;
+    color: black;
+}
+
+.contact-number {
+    font-size: 13px;
+    opacity: 0.9;
+    color: black;
+}
   
   @media (max-width: 768px) {
     .about-content,
