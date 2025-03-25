@@ -15,12 +15,15 @@ function App() {
   const [products, setProducts] = useState<Product[]>([] )
 
   const getAllProducts = async () => {
-    const { data: products} = await supabase.from("product").select()
+    const { data, status, error } = await supabase.from("product").select()
 
-    console.log("Products: ", products)
+    if(error) {
+      console.error(error, status)
+      return
+    }
 
-    if(products !== null && products.length > 1) {
-      setProducts(products)
+    if(data !== null && data.length != 0) {
+      setProducts(data)
     }
 
   }
