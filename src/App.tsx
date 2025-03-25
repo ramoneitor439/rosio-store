@@ -15,7 +15,7 @@ function App() {
 
   const [products, setProducts] = useState<Product[]>([])
   const rosioWhatsappMsg = "https://wa.me/5358259480?text="
-  const patriciaWhatsappMsg = "https://wa.me/5358259480?text="
+  const patriciaWhatsappMsg = "https://wa.me/51539789?text="
 
   const buildProductMsg = (url: string, product: string) => {
     const codedMsg = encodeURIComponent(
